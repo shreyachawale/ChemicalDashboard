@@ -1,0 +1,199 @@
+import React from 'react';
+import { 
+  Beaker, 
+  Shield, 
+  Zap, 
+  Thermometer, 
+  Droplets,
+  Wind,
+  Activity,
+  Target
+} from 'lucide-react';
+
+interface MetricCardProps {
+  icon: React.ReactNode;
+  value: string;
+  label: string;
+  unit?: string;
+  change?: string;
+  changeType?: 'increase' | 'decrease' | 'stable';
+  priority?: 'high' | 'medium' | 'low';
+}
+
+const MetricCard: React.FC<MetricCardProps> = ({ 
+  icon, 
+  value, 
+  label, 
+  unit, 
+  change, 
+  changeType,
+  priority = 'medium'
+}) => {
+  const getPriorityStyles = () => {
+    switch (priority) {
+      case 'high':
+        return 'border-l-4 border-l-red-500';
+      case 'low':
+        return 'border-l-4 border-l-green-500';
+      default:
+        return 'border-l-4 border-l-blue-500';
+    }
+  };
+
+  const getChangeColor = () => {
+    switch (changeType) {
+      case 'increase':
+        return 'text-green-700';
+      case 'decrease':
+        return 'text-red-700';
+      default:
+        return 'text-gray-600';
+    }
+  };
+
+  return (
+    <div className={`bg-white rounded-none shadow-sm hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300 ease-out p-6 ${getPriorityStyles()} group`}>
+      <div className="flex items-start justify-between mb-4">
+        <div className="text-gray-700 group-hover:text-gray-900 transition-colors duration-200">
+          {icon}
+        </div>
+        {change && (
+          <span className={`text-xs font-mono ${getChangeColor()}`}>
+            {change}
+          </span>
+        )}
+      </div>
+      
+      <div className="space-y-2">
+        <div className="flex items-baseline space-x-1">
+          <span className="text-3xl font-light text-gray-900 tracking-tight group-hover:text-black transition-colors duration-200">
+            {value}
+          </span>
+          {unit && (
+            <span className="text-sm text-gray-500 font-mono">
+              {unit}
+            </span>
+          )}
+        </div>
+        <div className="text-sm text-gray-600 font-medium uppercase tracking-wide">
+          {label}
+        </div>
+      </div>
+    </div>
+  );
+};
+
+const ChemicalDashboard: React.FC = () => {
+  const metrics = [
+    {
+      icon: <Beaker size={24} />,
+      value: '2,847',
+      label: 'Active Compounds',
+      change: '+127',
+      changeType: 'increase' as const,
+      priority: 'medium' as const
+    },
+    {
+      icon: <Shield size={24} />,
+      value: '99.7',
+      label: 'Safety Compliance',
+      unit: '%',
+      change: '+0.3%',
+      changeType: 'increase' as const,
+      priority: 'high' as const
+    },
+    {
+      icon: <Thermometer size={24} />,
+      value: '23.4',
+      label: 'Avg Temperature',
+      unit: '°C',
+      change: '-1.2°C',
+      changeType: 'decrease' as const,
+      priority: 'low' as const
+    },
+    {
+      icon: <Zap size={24} />,
+      value: '847',
+      label: 'Energy Consumption',
+      unit: 'kWh',
+      change: '-23 kWh',
+      changeType: 'decrease' as const,
+      priority: 'low' as const
+    },
+    {
+      icon: <Droplets size={24} />,
+      value: '1,247',
+      label: 'Water Usage',
+      unit: 'L',
+      change: '+89 L',
+      changeType: 'increase' as const,
+      priority: 'medium' as const
+    },
+    {
+      icon: <Wind size={24} />,
+      value: '12.3',
+      label: 'Air Quality Index',
+      change: 'stable',
+      changeType: 'stable' as const,
+      priority: 'low' as const
+    },
+    {
+      icon: <Activity size={24} />,
+      value: '94.2',
+      label: 'Process Efficiency',
+      unit: '%',
+      change: '+2.1%',
+      changeType: 'increase' as const,
+      priority: 'medium' as const
+    },
+    {
+      icon: <Target size={24} />,
+      value: '8',
+      label: 'Quality Targets Met',
+      change: '+2',
+      changeType: 'increase' as const,
+      priority: 'high' as const
+    }
+  ];
+
+  return (
+    <div className=" bg-gray-50">
+      <div className="max-w-7xl mx-auto px-8 py-12">
+        <div className="mb-12 animate-in fade-in duration-500">
+          <div className="flex items-center space-x-4 mb-3">
+            <div className="w-1 h-8 bg-blue-500"></div>
+            <h1 className="text-2xl font-light text-gray-900 tracking-tight">
+              Chemical Operations
+            </h1>
+          </div>
+          <p className="text-gray-600 font-mono text-sm">
+            Real-time laboratory metrics and performance indicators
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 animate-in fade-in duration-700 delay-200">
+          {metrics.map((metric, index) => (
+            <div
+              key={index}
+              className="animate-in slide-in-from-bottom-4 fade-in duration-500"
+              style={{ animationDelay: `${index * 100}ms` }}
+            >
+              <MetricCard
+                icon={metric.icon}
+                value={metric.value}
+                label={metric.label}
+                unit={metric.unit}
+                change={metric.change}
+                changeType={metric.changeType}
+                priority={metric.priority}
+              />
+            </div>
+          ))}
+        </div>
+
+      </div>
+    </div>
+  );
+};
+
+export default ChemicalDashboard;
