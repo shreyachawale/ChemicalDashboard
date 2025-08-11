@@ -47,6 +47,8 @@ const PerformanceCharts = () => {
               { name: 'Tergada', percentage: 72, color: 'bg-teal-500' },
               { name: 'XYZ Compound', percentage: 58, color: 'bg-teal-500' },
               { name: 'Benzene', percentage: 45, color: 'bg-teal-500' },
+              { name: 'Hydrochloric Acid', percentage: 35, color: 'bg-teal-500' },
+              { name: 'Sulfuric Acid', percentage: 55, color: 'bg-teal-500' },
             ].map((chemical, index) => (
               <div key={index}>
                 <div className="flex justify-between text-xs font-medium text-gray-700 mb-1">
