@@ -13,7 +13,7 @@ const FilterHeader = () => {
   return (
     <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-5">
       <div className="flex items-center justify-between mb-3">
-        <h1 className="text-xl font-bold text-gray-900">Chemical Sales Dashboard</h1>
+        <h1 className="text-xl font-bold text-gray-900">Customer Sales Visit Dashboard</h1>
         <div className="flex items-center space-x-2 text-xs text-gray-600">
           <Filter size={16} />
           <span>Filters Applied</span>

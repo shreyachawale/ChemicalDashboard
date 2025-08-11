@@ -6,13 +6,13 @@ const PerformanceCharts = () => {
     <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-5">
       <div className="flex items-center space-x-2 mb-4">
         <TrendingUp className="text-blue-600" size={20} />
-        <h3 className="text-base font-semibold text-gray-900">Performance Analytics</h3>
+        <h3 className="text-base font-semibold text-gray-900">Business Analytics</h3>
       </div>
       
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
       {/* Trend Line Chart */}
         <div>
-          <h4 className="text-sm font-medium text-gray-700 mb-3">Sales Trend</h4>
+          <h4 className="text-sm font-medium text-gray-700 mb-3">Visits Trend</h4>
           <div className="h-48 flex items-end justify-center space-x-6">
             {/* Simulated line chart with bars */}
             {[

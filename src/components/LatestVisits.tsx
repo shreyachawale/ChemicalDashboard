@@ -11,7 +11,7 @@ const LatestVisits = () => {
       purpose: "Product Demo",
       notes: "Interested in bulk orders",
       sentimentColor: "text-green-600 bg-green-100",
-      latestSummary: "Product demo went well, potential bulk order in next quarter.",
+      latestSummary: "Toulene, Benzene, Tergada",
       alerts: "No immediate alerts.",
       sentimentAction: "Send proposal and discount structure.",
       nextVisitReport: "Schedule follow-up by Jan 25."
@@ -24,7 +24,7 @@ const LatestVisits = () => {
       purpose: "Price Inquiry",
       notes: "Comparing competitors",
       sentimentColor: "text-yellow-600 bg-yellow-100",
-      latestSummary: "Awaiting response to quote.",
+      latestSummary: "Toulene, Benzene, Tergada",
       alerts: "Might consider competitor pricing.",
       sentimentAction: "Follow up with revised quote.",
       nextVisitReport: "Check-in call next week."
@@ -37,7 +37,7 @@ const LatestVisits = () => {
       purpose: "Contract Negotiation",
       notes: "Ready to close deal",
       sentimentColor: "text-green-600 bg-green-100",
-      latestSummary: "Contract in final review stage.",
+      latestSummary: "Toulene, Benzene, Tergada",
       alerts: "None.",
       sentimentAction: "Finalize contract draft.",
       nextVisitReport: "On-site visit Feb 1."
@@ -50,7 +50,7 @@ const LatestVisits = () => {
       purpose: "Issue Resolution",
       notes: "Quality concerns raised",
       sentimentColor: "text-red-600 bg-red-100",
-      latestSummary: "Quality complaint investigation ongoing.",
+      latestSummary: "Toulene, Benzene, Tergada",
       alerts: "High priority - could lose client.",
       sentimentAction: "Resolve issue within a week.",
       nextVisitReport: "Meeting on Jan 18."
@@ -63,7 +63,7 @@ const LatestVisits = () => {
       purpose: "Bulk Order",
       notes: "Large shipment confirmed",
       sentimentColor: "text-green-600 bg-green-100",
-      latestSummary: "Bulk order confirmed and processing.",
+      latestSummary: "Toulene, Benzene, Tergada",
       alerts: "Monitor supply chain delays.",
       sentimentAction: "Ensure timely delivery.",
       nextVisitReport: "Post-delivery satisfaction check."
@@ -76,7 +76,7 @@ const LatestVisits = () => {
       purpose: "Sample Testing",
       notes: "Samples sent for testing",
       sentimentColor: "text-yellow-600 bg-yellow-100",
-      latestSummary: "Awaiting lab results.",
+      latestSummary: "Toulene, Benzene, Tergada",
       alerts: "If delayed, risk losing interest.",
       sentimentAction: "Check with lab for ETA.",
       nextVisitReport: "Lab follow-up visit Jan 20."
@@ -106,7 +106,7 @@ const LatestVisits = () => {
               <th className="hidden sm:table-cell px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Date</th>
               <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Sentiment</th>
               <th className="hidden sm:table-cell px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Action</th>
-              <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Sales</th>
+              <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Summary</th>
             </tr>
           </thead>
           <tbody className="bg-white divide-y divide-gray-200">
@@ -147,7 +147,7 @@ const LatestVisits = () => {
                         <div className="flex items-start space-x-3">
                           <FileText className="text-blue-500 mt-1" size={18} />
                           <div>
-                            <p className="font-semibold text-gray-800">Latest Summary</p>
+                            <p className="font-semibold text-gray-800">Chemicals</p>
                             <p className="text-sm text-gray-600">{visit.latestSummary}</p>
                           </div>
                         </div>

@@ -159,7 +159,7 @@ const ChemicalDashboard: React.FC = () => {
   return (
     <div className=" bg-gray-50">
       <div className="max-w-7xl mx-auto px-8 py-12">
-        <div className="mb-12 animate-in fade-in duration-500">
+        {/* <div className="mb-12 animate-in fade-in duration-500">
           <div className="flex items-center space-x-4 mb-3">
             <div className="w-1 h-8 bg-blue-500"></div>
             <h1 className="text-2xl font-light text-gray-900 tracking-tight">
@@ -169,7 +169,7 @@ const ChemicalDashboard: React.FC = () => {
           <p className="text-gray-600 font-mono text-sm">
             Real-time laboratory metrics and performance indicators
           </p>
-        </div>
+        </div> */}
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 animate-in fade-in duration-700 delay-200">
           {metrics.map((metric, index) => (

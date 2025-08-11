@@ -9,9 +9,9 @@ const UpcomingTasks = () => {
   ];
 
   const quotes = [
-    { customer: 'BioTech Industries', product: 'Specialized Solvents', amount: '$45,000', status: 'Pending' },
-    { customer: 'Green Chemistry Corp', product: 'Eco-friendly Compounds', amount: '$28,500', status: 'Approved' },
-    { customer: 'Research Labs Inc', product: 'High Purity Reagents', amount: '$62,200', status: 'Under Review' },
+    { customer: 'BioTech Industries', product: 'Specialized Solvents', amount: 'Toluene, Tergada', status: 'Pending' },
+    { customer: 'Green Chemistry Corp', product: 'Eco-friendly Compounds', amount: 'Benzene', status: 'Approved' },
+    { customer: 'Research Labs Inc', product: 'High Purity Reagents', amount: 'Benzene, Toluene', status: 'Under Review' },
   ];
 
   const getPriorityColor = (priority: string) => {
@@ -38,7 +38,7 @@ const UpcomingTasks = () => {
       <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-4">
         <div className="flex items-center space-x-2 mb-3">
           <Calendar className="text-blue-600" size={20} />
-          <h3 className="text-base font-semibold text-gray-900">Next Visit Reqs</h3>
+          <h3 className="text-base font-semibold text-gray-900">Next Visit Recommended</h3>
         </div>
         <div className="space-y-3">
           {nextVisits.map((visit, index) => (
@@ -71,7 +71,7 @@ const UpcomingTasks = () => {
       <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-4">
         <div className="flex items-center space-x-2 mb-3">
           <FileText className="text-teal-600" size={20} />
-          <h3 className="text-base font-semibold text-gray-900">Quote Status</h3>
+          <h3 className="text-base font-semibold text-gray-900">Quote Requested</h3>
         </div>
         <div className="space-y-3">
           {quotes.map((quote, index) => (
