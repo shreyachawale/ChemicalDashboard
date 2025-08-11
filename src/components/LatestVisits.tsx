@@ -2,7 +2,17 @@ import React, { useState } from "react";
 import { Calendar, User, AlertCircle, FileText, Target, Clock, ChevronDown } from "lucide-react";
 
 const LatestVisits = () => {
-  const [activeFilter, setActiveFilter] = useState<string | null>(null);
+  const [expandedRow, setExpandedRow] = useState<number | null>(null);
+  const [selectedCustomer, setSelectedCustomer] = useState<string | null>(null);
+  const [showDropdown, setShowDropdown] = useState(false);
+
+  const uniqueCustomers = ['All Customers', 'Acme Chemical Corp', 'Industrial Solutions Ltd', 'ChemTech Industries', 'Global Chemicals Inc', 'EnviroChem Pvt Ltd', 'BioTech Labs'];
+  
+  const handleCustomerSelect = (customer: string) => {
+    setSelectedCustomer(customer === 'All Customers' ? null : customer);
+    setShowDropdown(false);
+  };
+
   const visits = [
   {
     "customerName": "Acme Chemical Corp",
@@ -90,9 +100,7 @@ const LatestVisits = () => {
   }
 ];
 
-  const [expandedRow, setExpandedRow] = useState(null);
-
-  const toggleRow = (index) => {
+  const toggleRow = (index: number) => {
     setExpandedRow(expandedRow === index ? null : index);
   };
 
@@ -104,20 +112,39 @@ const LatestVisits = () => {
             <Calendar className="text-blue-600" size={20} />
             <h2 className="text-base font-semibold text-gray-900">Latest Visits</h2>
           </div>
-          <div className="flex items-center space-x-2">
-            {['Customer', 'Collector', 'Product', 'Time'].map((filter) => (
-              <button
-                key={filter}
-                onClick={() => setActiveFilter(activeFilter === filter ? null : filter)}
-                className={`px-3 py-1 text-sm font-medium rounded-md transition-colors duration-150 flex items-center space-x-1
-                  ${activeFilter === filter 
-                    ? 'bg-blue-50 text-blue-600' 
-                    : 'text-gray-600 hover:text-blue-600 hover:bg-blue-50'
-                  }`}
-              >
-                <span>{filter}</span>
-              </button>
-            ))}
+          <div className="flex items-center space-x-2 relative">
+            <button
+              onClick={() => setShowDropdown(!showDropdown)}
+              className={`px-3 py-1 text-sm font-medium rounded-md transition-colors duration-150 flex items-center space-x-1
+                ${selectedCustomer ? 'bg-blue-50 text-blue-600' : 'text-gray-600 hover:text-blue-600 hover:bg-blue-50'}`}
+            >
+              <span>Customers</span>
+              <span className="text-xs ml-1">
+                {selectedCustomer ? `(${selectedCustomer})` : ''}
+              </span>
+              <ChevronDown 
+                size={14} 
+                className={`ml-1 transition-transform duration-200 ${showDropdown ? 'transform rotate-180' : ''}`} 
+              />
+            </button>
+
+            {showDropdown && (
+              <div className="absolute right-0 mt-12 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 z-10">
+                <div className="py-1 max-h-48 overflow-auto" role="menu" aria-orientation="vertical">
+                  {uniqueCustomers.map((customer) => (
+                    <button
+                      key={customer}
+                      onClick={() => handleCustomerSelect(customer)}
+                      className={`block w-full text-left px-4 py-2 text-sm hover:bg-gray-100 ${
+                        selectedCustomer === customer ? 'bg-blue-50 text-blue-600' : 'text-gray-700'
+                      }`}
+                    >
+                      {customer}
+                    </button>
+                  ))}
+                </div>
+              </div>
+            )}
           </div>
         </div>
       </div>
@@ -134,7 +161,7 @@ const LatestVisits = () => {
             </tr>
           </thead>
           <tbody className="bg-white divide-y divide-gray-200">
-            {visits.map((visit, index) => (
+            {(selectedCustomer ? visits.filter(visit => visit.customerName === selectedCustomer) : visits).map((visit, index) => (
               <React.Fragment key={index}>
                 <tr
                   className="hover:bg-gray-50 transition-colors duration-150 cursor-pointer"
