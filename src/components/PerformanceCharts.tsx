@@ -3,14 +3,13 @@ import { TrendingUp, BarChart3 } from 'lucide-react';
 
 const PerformanceCharts = () => {
   return (
-    <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-5">
-      <div className="flex items-center space-x-2 mb-4">
-        <TrendingUp className="text-blue-600" size={20} />
-        <h3 className="text-base font-semibold text-gray-900">Business Analytics</h3>
-      </div>
-      
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
       {/* Trend Line Chart */}
+      <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-5 h-[371px]">
+        <div className="flex items-center space-x-2 mb-4">
+          <TrendingUp className="text-blue-600" size={20} />
+          <h3 className="text-base font-semibold text-gray-900">Visit Analytics</h3>
+        </div>
         <div>
           <h4 className="text-sm font-medium text-gray-700 mb-3">Visits Trend</h4>
           <div className="h-48 flex items-end justify-center space-x-6">
@@ -32,16 +31,22 @@ const PerformanceCharts = () => {
             ))}
           </div>
         </div>
+      </div>
 
-        {/* Top Chemicals Bar Chart */}
+      {/* Top Chemicals Bar Chart */}
+      <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-5">
+        <div className="flex items-center space-x-2 mb-4">
+          <BarChart3 className="text-blue-600" size={20} />
+          <h3 className="text-base font-semibold text-gray-900">Top Chemicals</h3>
+        </div>
         <div>
           <h4 className="text-sm font-medium text-gray-700 mb-3">Top Chemicals</h4>
           <div className="space-y-3">
             {[
               { name: 'Toluene', percentage: 85, color: 'bg-teal-500' },
-              { name: 'Tergada', percentage: 72, color: 'bg-blue-500' },
-              { name: 'XYZ Compound', percentage: 58, color: 'bg-purple-500' },
-              { name: 'Benzene', percentage: 45, color: 'bg-orange-500' },
+              { name: 'Tergada', percentage: 72, color: 'bg-teal-500' },
+              { name: 'XYZ Compound', percentage: 58, color: 'bg-teal-500' },
+              { name: 'Benzene', percentage: 45, color: 'bg-teal-500' },
             ].map((chemical, index) => (
               <div key={index}>
                 <div className="flex justify-between text-xs font-medium text-gray-700 mb-1">

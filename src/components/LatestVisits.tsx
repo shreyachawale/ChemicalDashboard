@@ -1,87 +1,94 @@
 import React, { useState } from "react";
-import { Calendar, User, AlertCircle, FileText, Target, Clock } from "lucide-react";
+import { Calendar, User, AlertCircle, FileText, Target, Clock, ChevronDown } from "lucide-react";
 
 const LatestVisits = () => {
+  const [activeFilter, setActiveFilter] = useState<string | null>(null);
   const visits = [
-    {
-      customerName: "Acme Chemical Corp",
-      date: "2025-01-15",
-      sentiment: "Positive",
-      action: "Follow-up",
-      purpose: "Product Demo",
-      notes: "Interested in bulk orders",
-      sentimentColor: "text-green-600 bg-green-100",
-      latestSummary: "Toulene, Benzene, Tergada",
-      alerts: "No immediate alerts.",
-      sentimentAction: "Send proposal and discount structure.",
-      nextVisitReport: "Schedule follow-up by Jan 25."
-    },
-    {
-      customerName: "Industrial Solutions Ltd",
-      date: "2025-01-14",
-      sentiment: "Neutral",
-      action: "Quote Sent",
-      purpose: "Price Inquiry",
-      notes: "Comparing competitors",
-      sentimentColor: "text-yellow-600 bg-yellow-100",
-      latestSummary: "Toulene, Benzene, Tergada",
-      alerts: "Might consider competitor pricing.",
-      sentimentAction: "Follow up with revised quote.",
-      nextVisitReport: "Check-in call next week."
-    },
-    {
-      customerName: "ChemTech Industries",
-      date: "2025-01-13",
-      sentiment: "Positive",
-      action: "Contract Review",
-      purpose: "Contract Negotiation",
-      notes: "Ready to close deal",
-      sentimentColor: "text-green-600 bg-green-100",
-      latestSummary: "Toulene, Benzene, Tergada",
-      alerts: "None.",
-      sentimentAction: "Finalize contract draft.",
-      nextVisitReport: "On-site visit Feb 1."
-    },
-    {
-      customerName: "Global Chemicals Inc",
-      date: "2025-01-12",
-      sentiment: "Negative",
-      action: "Schedule Meeting",
-      purpose: "Issue Resolution",
-      notes: "Quality concerns raised",
-      sentimentColor: "text-red-600 bg-red-100",
-      latestSummary: "Toulene, Benzene, Tergada",
-      alerts: "High priority - could lose client.",
-      sentimentAction: "Resolve issue within a week.",
-      nextVisitReport: "Meeting on Jan 18."
-    },
-    {
-      customerName: "EnviroChem Pvt Ltd",
-      date: "2025-01-10",
-      sentiment: "Positive",
-      action: "Order Taken",
-      purpose: "Bulk Order",
-      notes: "Large shipment confirmed",
-      sentimentColor: "text-green-600 bg-green-100",
-      latestSummary: "Toulene, Benzene, Tergada",
-      alerts: "Monitor supply chain delays.",
-      sentimentAction: "Ensure timely delivery.",
-      nextVisitReport: "Post-delivery satisfaction check."
-    },
-    {
-      customerName: "BioTech Labs",
-      date: "2025-01-09",
-      sentiment: "Neutral",
-      action: "Follow-up",
-      purpose: "Sample Testing",
-      notes: "Samples sent for testing",
-      sentimentColor: "text-yellow-600 bg-yellow-100",
-      latestSummary: "Toulene, Benzene, Tergada",
-      alerts: "If delayed, risk losing interest.",
-      sentimentAction: "Check with lab for ETA.",
-      nextVisitReport: "Lab follow-up visit Jan 20."
-    }
-  ];
+  {
+    "customerName": "Acme Chemical Corp",
+    "date": "2025-01-15",
+    "sentiment": "Positive",
+    "action": "Follow-up",
+    "purpose": "Product Demo",
+    "notes": "Interested in bulk orders",
+    "sentimentColor": "text-green-600 bg-green-100",
+    "latestSummary": "Toulene, Benzene, Tergada",
+    "alerts": "No immediate alerts.",
+    "sentimentAction": "Send proposal and discount structure.",
+    "summary": "The client is very interested in the bulk orders and we have a follow up scheduled to send proposal and discount structure.",
+    "nextVisitReport": "Follow-up meeting scheduled for Jan 25 to discuss detailed pricing."
+  },
+  {
+    "customerName": "Industrial Solutions Ltd",
+    "date": "2025-01-14",
+    "sentiment": "Neutral",
+    "action": "Quote Sent",
+    "purpose": "Price Inquiry",
+    "notes": "Comparing competitors",
+    "sentimentColor": "text-yellow-600 bg-yellow-100",
+    "latestSummary": "Toulene, Benzene, Tergada",
+    "alerts": "Might consider competitor pricing.",
+    "sentimentAction": "Follow up with revised quote.",
+    "summary": "They are comparing our pricing with other competitors and we will follow up with them with a revised quote to convert.",
+    "nextVisitReport": "Virtual check-in call next week to address price concerns."
+  },
+  {
+    "customerName": "ChemTech Industries",
+    "date": "2025-01-13",
+    "sentiment": "Positive",
+    "action": "Contract Review",
+    "purpose": "Contract Negotiation",
+    "notes": "Ready to close deal",
+    "sentimentColor": "text-green-600 bg-green-100",
+    "latestSummary": "Toulene, Benzene, Tergada",
+    "alerts": "None.",
+    "sentimentAction": "Finalize contract draft.",
+    "summary": "The client is ready to close the deal, so we will finalize the contract draft to close it as soon as possible.",
+    "nextVisitReport": "On-site visit on Feb 1 to review and finalize contract."
+  },
+  {
+    "customerName": "Global Chemicals Inc",
+    "date": "2025-01-12",
+    "sentiment": "Negative",
+    "action": "Schedule Meeting",
+    "purpose": "Issue Resolution",
+    "notes": "Quality concerns raised",
+    "sentimentColor": "text-red-600 bg-red-100",
+    "latestSummary": "Toulene, Benzene, Tergada",
+    "alerts": "High priority - could lose client.",
+    "sentimentAction": "Resolve issue within a week.",
+    "summary": "The client raised quality concerns about the latest product which must be resolved within a week to not lose the client.",
+    "nextVisitReport": "Emergency meeting on Jan 18 to address quality issues."
+  },
+  {
+    "customerName": "EnviroChem Pvt Ltd",
+    "date": "2025-01-10",
+    "sentiment": "Positive",
+    "action": "Order Taken",
+    "purpose": "Bulk Order",
+    "notes": "Large shipment confirmed",
+    "sentimentColor": "text-green-600 bg-green-100",
+    "latestSummary": "Toulene, Benzene, Tergada",
+    "alerts": "Monitor supply chain delays.",
+    "sentimentAction": "Ensure timely delivery.",
+    "summary": "They confirmed a large shipment and placed a bulk order, so we have to ensure a timely delivery.",
+    "nextVisitReport": "Post-delivery satisfaction review to be scheduled."
+  },
+  {
+    "customerName": "BioTech Labs",
+    "date": "2025-01-09",
+    "sentiment": "Neutral",
+    "action": "Follow-up",
+    "purpose": "Sample Testing",
+    "notes": "Samples sent for testing",
+    "sentimentColor": "text-yellow-600 bg-yellow-100",
+    "latestSummary": "Toulene, Benzene, Tergada",
+    "alerts": "If delayed, risk losing interest.",
+    "sentimentAction": "Check with lab for ETA.",
+    "summary": "Client is testing the samples we sent for their lab, so we will check the ETA of the results.",
+    "nextVisitReport": "Lab visit on Jan 20 to review test results."
+  }
+];
 
   const [expandedRow, setExpandedRow] = useState(null);
 
@@ -90,11 +97,28 @@ const LatestVisits = () => {
   };
 
   return (
-    <div className="bg-white rounded-lg shadow-sm border border-gray-200 h-[550px] flex flex-col">
+    <div className="bg-white rounded-lg shadow-sm border border-gray-200 h-[610px] flex flex-col">
       <div className="p-4 border-b border-gray-200">
-        <div className="flex items-center space-x-2">
-          <Calendar className="text-blue-600" size={20} />
-          <h2 className="text-base font-semibold text-gray-900">Latest Visits</h2>
+        <div className="flex items-center justify-between">
+          <div className="flex items-center space-x-2">
+            <Calendar className="text-blue-600" size={20} />
+            <h2 className="text-base font-semibold text-gray-900">Latest Visits</h2>
+          </div>
+          <div className="flex items-center space-x-2">
+            {['Customer', 'Collector', 'Product', 'Time'].map((filter) => (
+              <button
+                key={filter}
+                onClick={() => setActiveFilter(activeFilter === filter ? null : filter)}
+                className={`px-3 py-1 text-sm font-medium rounded-md transition-colors duration-150 flex items-center space-x-1
+                  ${activeFilter === filter 
+                    ? 'bg-blue-50 text-blue-600' 
+                    : 'text-gray-600 hover:text-blue-600 hover:bg-blue-50'
+                  }`}
+              >
+                <span>{filter}</span>
+              </button>
+            ))}
+          </div>
         </div>
       </div>
 
@@ -117,9 +141,17 @@ const LatestVisits = () => {
                   onClick={() => toggleRow(index)}
                 >
                   <td className="px-4 py-4 whitespace-nowrap">
-                    <div className="flex items-center">
-                      <User className="text-gray-400 mr-1" size={14} />
-                      <span className="text-sm font-medium text-gray-900">{visit.customerName}</span>
+                    <div className="flex items-center justify-between">
+                      <div className="flex items-center">
+                        <User className="text-gray-400 mr-1" size={14} />
+                        <span className="text-sm font-medium text-gray-900">{visit.customerName}</span>
+                      </div>
+                      <ChevronDown 
+                        size={16} 
+                        className={`text-gray-400 transition-transform duration-200 ${
+                          expandedRow === index ? 'transform rotate-180' : ''
+                        }`}
+                      />
                     </div>
                   </td>
                   <td className="hidden sm:table-cell px-4 py-4 whitespace-nowrap text-sm text-gray-600">
@@ -135,8 +167,8 @@ const LatestVisits = () => {
                   <td className="hidden sm:table-cell px-4 py-4 whitespace-nowrap text-sm text-gray-900">
                     {visit.action}
                   </td>
-                  <td className="px-4 py-4 whitespace-nowrap text-sm font-semibold text-green-600">
-                    ${(Math.random() * 50000 + 10000).toFixed(0)}
+                  <td className="px-4 py-4 whitespace-wrap text-sm text-gray-900">
+                    {visit.summary}
                   </td>
                 </tr>
 
