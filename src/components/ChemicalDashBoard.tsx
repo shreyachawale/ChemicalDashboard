@@ -1,13 +1,13 @@
 import React from 'react';
 import { 
   Beaker, 
-  Shield, 
-  Zap, 
-  Thermometer, 
-  Droplets,
-  Wind,
-  Activity,
-  Target
+  Users,
+  AlertTriangle,
+  ThumbsUp,
+  Target,
+  PieChart,
+  Smile,
+  ClipboardList
 } from 'lucide-react';
 
 interface MetricCardProps {
@@ -85,75 +85,73 @@ const MetricCard: React.FC<MetricCardProps> = ({
 
 const ChemicalDashboard: React.FC = () => {
   const metrics = [
-    {
-      icon: <Beaker size={24} />,
-      value: '2,847',
-      label: 'Active Compounds',
-      change: '+127',
-      changeType: 'increase' as const,
-      priority: 'medium' as const
-    },
-    {
-      icon: <Shield size={24} />,
-      value: '99.7',
-      label: 'Safety Compliance',
-      unit: '%',
-      change: '+0.3%',
-      changeType: 'increase' as const,
-      priority: 'high' as const
-    },
-    {
-      icon: <Thermometer size={24} />,
-      value: '23.4',
-      label: 'Avg Temperature',
-      unit: '°C',
-      change: '-1.2°C',
-      changeType: 'decrease' as const,
-      priority: 'low' as const
-    },
-    {
-      icon: <Zap size={24} />,
-      value: '847',
-      label: 'Energy Consumption',
-      unit: 'kWh',
-      change: '-23 kWh',
-      changeType: 'decrease' as const,
-      priority: 'low' as const
-    },
-    {
-      icon: <Droplets size={24} />,
-      value: '1,247',
-      label: 'Water Usage',
-      unit: 'L',
-      change: '+89 L',
-      changeType: 'increase' as const,
-      priority: 'medium' as const
-    },
-    {
-      icon: <Wind size={24} />,
-      value: '12.3',
-      label: 'Air Quality Index',
-      change: 'stable',
-      changeType: 'stable' as const,
-      priority: 'low' as const
-    },
-    {
-      icon: <Activity size={24} />,
-      value: '94.2',
-      label: 'Process Efficiency',
-      unit: '%',
-      change: '+2.1%',
-      changeType: 'increase' as const,
-      priority: 'medium' as const
-    },
-    {
+  {
+    icon: <ClipboardList size={24} />,
+    value: "318",
+    label: "Total Visits",
+    change: null,
+    changeType: null,
+    priority: null
+  },
+  {
+    icon: <Users size={24} />,
+    value: "76",
+    label: "Sales Reps",
+    change: null,
+    changeType: null,
+    priority: null
+  },
+  {
+    icon: <Beaker size={24} />,
+    value: "248",
+    label: "Chemicals Discussed",
+    change: null,
+    changeType: null,
+    priority: null
+  },
+  {
+    icon: <AlertTriangle size={24} />,
+    value: "42",
+    label: "Negative Sentiment Counts",
+    change: null,
+    changeType: null,
+    priority: "high"
+  },
+  {
+    icon: <ThumbsUp size={24} />,
+    value: "71.7",
+    label: "Good CVR Quality %",
+    unit: "%",
+    change: null,
+    changeType: null,
+    priority: "high"
+  },
+  {
+    icon: <Smile size={24} />,
+    value: "69.2",
+    label: "Positive Sentiment %",
+    unit: "%",
+    change: null,
+    changeType: null,
+    priority: "medium"
+  },
+  {
+    icon: <PieChart size={24} />,
+    value: "15.7",
+    label: "New Customers",
+    unit: "%",
+    change: null,
+    changeType: null,
+    priority: "high"
+  },
+  {
       icon: <Target size={24} />,
       value: '8',
       label: 'Quality Targets Met',
       change: '+2',
       changeType: 'increase' as const,
       priority: 'high' as const
-    }
+  }
   ];
 
   return (
