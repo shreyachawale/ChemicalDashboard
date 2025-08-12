@@ -105,7 +105,7 @@ const LatestVisits = () => {
   };
 
   return (
-    <div className="bg-white rounded-lg shadow-sm border border-gray-200 h-[610px] flex flex-col">
+    <div className="bg-white rounded-lg shadow-sm border border-gray-200 h-[450px] flex flex-col">
       <div className="p-4 border-b border-gray-200">
         <div className="flex items-center justify-between">
           <div className="flex items-center space-x-2">
