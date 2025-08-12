@@ -3,9 +3,10 @@ import { Trophy, Target, MessageCircle } from 'lucide-react';
 
 const TopMetrics = () => {
   const conversionData = [
-    { salesman: 'John Smith', date: '2025-01-15', purpose: 'Product Demo', conversion: 'Action', company : 'Acme Corp' },
-    { salesman: 'Sarah Johnson', date: '2025-01-14', purpose: 'Contract Close', conversion: 'Action', company : 'Industrial Solutions' },
-    { salesman: 'Mike Chen', date: '2025-01-13', purpose: 'Follow-up', conversion: 'Action', company : 'ChemTech Ltd' },
+    { salesman: 'John Smith', conversion: '92%'},
+    { salesman: 'Sarah Johnson', conversion: '94%'},
+    { salesman: 'Mike Chen', conversion: '96%'},
+    // { salesman: 'Mike Chen', date: '2025-01-13', purpose: 'Follow-up', conversion: '96%', company : 'ChemTech Ltd' },
   ];
 
   const sentimentAlerts = [
@@ -27,7 +28,7 @@ const TopMetrics = () => {
             <div key={index} className="flex items-center justify-between p-3 bg-gray-50 rounded hover:bg-gray-100 transition-colors duration-150">
               <div className="flex-1">
                 <div className="text-sm font-medium text-gray-900">{item.salesman}</div>
-                <div className="text-xs text-gray-600">{item.purpose} • {new Date(item.date).toLocaleDateString()}</div>
+                {/* <div className="text-xs text-gray-600">{item.purpose} • {new Date(item.date).toLocaleDateString()}</div> */}
                 <div className="text-xs font-medium text-gray-700">{item.company}</div>
               </div>
               <div className="text-sm font-bold text-green-600">{item.conversion}</div>

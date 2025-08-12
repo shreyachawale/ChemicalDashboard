@@ -83,7 +83,7 @@ const UpcomingTasks = () => {
                 </span>
               </div>
               <div className="text-xs text-gray-600">{quote.product}</div>
-              <div className="text-sm font-bold text-gray-900 mt-1">{quote.amount}</div>
+              <div className="text-xs text-gray-800 mt-1">{quote.amount}</div>
             </div>
           ))}
         </div>
