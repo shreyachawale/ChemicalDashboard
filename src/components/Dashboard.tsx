@@ -28,19 +28,16 @@ const Dashboard = () => {
           </div>
         </div>
         
-        {/* Main Content Grid - Better Space Utilization */}
-        <div className="grid grid-cols-1 xl:grid-cols-4 gap-6">
-          {/* Left Column - Latest Visits (Wider) */}
-          <div className="xl:col-span-3">
-            <LatestVisits />
-          </div>
-          
-          {/* Right Column - Metrics */}
-          <div className="xl:col-span-1">
-            <TopMetrics />
-          </div>
+        {/* Latest Visits - Full Width */}
+        <div className="w-full mb-6">
+          <LatestVisits />
         </div>
-        
+
+        {/* Top Metrics - Full Width */}
+        <div className="w-full">
+          <TopMetrics />
+        </div>
+
         {/* Bottom Section - Upcoming Tasks (Full Width) */}
         <UpcomingTasks />
       </div>
