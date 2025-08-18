@@ -127,6 +127,34 @@ const LatestVisits = () => {
                 className={`ml-1 transition-transform duration-200 ${showDropdown ? 'transform rotate-180' : ''}`} 
               />
             </button>
+            <button
+              onClick={() => setShowDropdown(!showDropdown)}
+              className={`px-3 py-1 text-sm font-medium rounded-md transition-colors duration-150 flex items-center space-x-1
+                ${selectedCustomer ? 'bg-blue-50 text-blue-600' : 'text-gray-600 hover:text-blue-600 hover:bg-blue-50'}`}
+            >
+              <span>Sentiment</span>
+              <span className="text-xs ml-1">
+                {selectedCustomer ? `(${selectedCustomer})` : ''}
+              </span>
+              <ChevronDown 
+                size={14} 
+                className={`ml-1 transition-transform duration-200 ${showDropdown ? 'transform rotate-180' : ''}`} 
+              />
+            </button>
+            <button
+              onClick={() => setShowDropdown(!showDropdown)}
+              className={`px-3 py-1 text-sm font-medium rounded-md transition-colors duration-150 flex items-center space-x-1
+                ${selectedCustomer ? 'bg-blue-50 text-blue-600' : 'text-gray-600 hover:text-blue-600 hover:bg-blue-50'}`}
+            >
+              <span>Action</span>
+              <span className="text-xs ml-1">
+                {selectedCustomer ? `(${selectedCustomer})` : ''}
+              </span>
+              <ChevronDown 
+                size={14} 
+                className={`ml-1 transition-transform duration-200 ${showDropdown ? 'transform rotate-180' : ''}`} 
+              />
+            </button>
 
             {showDropdown && (
               <div className="absolute right-0 mt-12 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 z-10">

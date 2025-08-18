@@ -37,7 +37,7 @@ const TopMetrics = () => {
       <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-4">
         <div className="flex items-center space-x-2 mb-3">
           <Trophy className="text-yellow-500" size={20} />
-          <h3 className="text-base font-semibold text-gray-900">Top Actions</h3>
+          <h3 className="text-base font-semibold text-gray-900">Top Performers</h3>
         </div>
         <div className="space-y-2">
           {(selectedSalesPerson ? conversionData.filter(item => item.salesman === selectedSalesPerson) : conversionData).map((item, index) => (

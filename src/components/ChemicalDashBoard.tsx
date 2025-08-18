@@ -144,14 +144,6 @@ const ChemicalDashboard: React.FC = () => {
     changeType: null,
     priority: "high"
   },
-  {
-      icon: <Target size={24} />,
-      value: '8',
-      label: 'Quality Targets Met',
-      change: '+2',
-      changeType: 'increase' as const,
-      priority: 'high' as const
-  }
   ];
 
   return (

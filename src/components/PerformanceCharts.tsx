@@ -15,11 +15,11 @@ const PerformanceCharts = () => {
           <div className="h-48 flex items-end justify-center space-x-6">
             {/* Simulated line chart with bars */}
             {[
-              { month: 'Jan', value: 65 },
-              { month: 'Feb', value: 78 },
-              { month: 'Mar', value: 82 },
-              { month: 'Apr', value: 74 },
-              { month: 'May', value: 88 },
+              { month: 'JC1', value: 65 },
+              { month: 'JC2', value: 78 },
+              { month: 'JC3', value: 82 },
+              { month: 'JC4', value: 74 },
+              { month: 'JC5', value: 88 },
             ].map((data, index) => (
               <div key={index} className="flex flex-col items-center">
                 <div
@@ -47,8 +47,8 @@ const PerformanceCharts = () => {
               { name: 'Tergada', percentage: 72, color: 'bg-teal-500' },
               { name: 'XYZ Compound', percentage: 58, color: 'bg-teal-500' },
               { name: 'Benzene', percentage: 45, color: 'bg-teal-500' },
-              { name: 'Hydrochloric Acid', percentage: 35, color: 'bg-teal-500' },
-              { name: 'Sulfuric Acid', percentage: 55, color: 'bg-teal-500' },
+              { name: 'Hydrochloric Acid', percentage: 40, color: 'bg-teal-500' },
+              { name: 'Sulfuric Acid', percentage: 30, color: 'bg-teal-500' },
             ].map((chemical, index) => (
               <div key={index}>
                 <div className="flex justify-between text-xs font-medium text-gray-700 mb-1">
