@@ -78,9 +78,9 @@ const UpcomingTasks = () => {
             <div key={index} className="p-3 bg-gray-50 rounded hover:bg-gray-100 transition-colors duration-150">
               <div className="flex items-center justify-between mb-1">
                 <div className="text-sm font-medium text-gray-900">{quote.customer}</div>
-                <span className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${getStatusColor(quote.status)}`}>
+                {/* <span className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${getStatusColor(quote.status)}`}>
                   {quote.status}
-                </span>
+                </span> */}
               </div>
               <div className="text-xs text-gray-600">{quote.product}</div>
               <div className="text-xs text-gray-800 mt-1">{quote.amount}</div>
